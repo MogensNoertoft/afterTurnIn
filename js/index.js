@@ -71,6 +71,7 @@ function onDiscoverDevice(device){
 		{
 		var listItem = document.createElement('li');
         html = device.name;
+		alert(html);
 		listItem.innerHTML = html;
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
