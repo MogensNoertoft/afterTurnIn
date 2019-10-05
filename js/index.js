@@ -69,15 +69,20 @@ function onDiscoverDevice(device){
         }
 		else
 		{
-		var listItem = document.createElement('li');
-        html = device.name;
-		listItem.innerHTML = html;
-        listItem.classList.add('active');
-		document.getElementById("bleDeviceList").appendChild(listItem);
-		listItem.addEventListener('click', listItemClicked , false);
-		//deviceList.push("frugtgront");
-		deviceList.push(html);
+		var testgroups = ['brevpapir','radiotv','frugtgront', 'shampoo'];
 		
+		for(var i=0;i<testgroups.length;i++)
+		{
+			var listItem = document.createElement('li');
+			//html = device.name; 
+			html = testgroups[i];
+			listItem.innerHTML = html;
+			listItem.classList.add('active');
+			document.getElementById("bleDeviceList").appendChild(listItem);
+			//listItem.addEventListener('click', listItemClicked , false);
+			//deviceList.push("frugtgront");
+			deviceList.push(html);
+		}
         
 		//call of test() has been moved to after listItem has been added ????????
 		test(deviceList);
