@@ -112,9 +112,11 @@ function conn(){
 	alert("conn");
 	var  deviceTouch= event.srcElement.innerHTML;
 	alert("Group selected" + deviceTouch);
+	
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
 var deviceTouchArr = deviceTouch.split(",");// if(debug) {deviceList=deviceTouchArr; alert("deviceTouchArr længde" + deviceTouchArr.length);}
 	bleDeviceName = deviceTouchArr[0];
+	test(deviceTouchArr[0]);
 	document.getElementById("debugDiv").innerHTML += "Du vil kun se: <br>"+deviceTouchArr[0]+" tilbud"; //for debug:
     if(event.srcElement.classList.contains('inactive')){
         event.srcElement.classList.remove('inactive');
