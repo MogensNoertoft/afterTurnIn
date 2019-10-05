@@ -72,6 +72,7 @@ function onDiscoverDevice(device){
 		var listItem = document.createElement('li');
         html = device.name;
 		listItem.innerHTML = html;
+		listItem.addEventListener("click",listItemClicked(html);
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
 		deviceList.push("frugtgront");
@@ -161,6 +162,11 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 		str="";
 	if (debug) alert(""+str);
 	return str;
+}
+
+function listItemClicked(item)
+{
+	alert("listItemClicked - " + item);
 }
 
 /* ----------------------------------------------------------------------------------------*/
