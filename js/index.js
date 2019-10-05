@@ -35,7 +35,7 @@ function onLoad(){
 	
 	window.open = codova.InAppBrowser.open;
 	
-	document.addEventListener("deviceready", onDeviceReady, false);
+	//document.addEventListener("deviceready", onDeviceReady, false);
 	
 
 }
@@ -129,7 +129,7 @@ function test(){
 function openBrowser(url) {
    var target = '_blank';
    var options = "location=no"
-   if(debug) options = 'height=500, width=100'
+   if(debug) options = "height=50, width=10"
    var ref = cordova.InAppBrowser.open(url, target, options);
 
 }
