@@ -121,8 +121,8 @@ function onError(reason)  {
 
 function test(){
 	str=selectgroup(['radiotv']); if (debug) str=selectgroup(deviceList);
-	var url='http://10.120.181.3/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
-	if(debug) url='http://10.120.181.3/DBDisplay.php?selectedgroup=' + str;
+	var url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
+	if(debug) url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + str;
 	openBrowser(url);
 }
 
