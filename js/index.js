@@ -72,7 +72,7 @@ function onDiscoverDevice(device){
 		var listItem = document.createElement('li');
         html = device.name;
 		listItem.innerHTML = html;
-		listItem.addEventListener('click',listItemClicked(html), false);
+		listItem.addEventListener('onclick', listItemClicked(html));
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
 		deviceList.push("frugtgront");
