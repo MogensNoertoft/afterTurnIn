@@ -77,7 +77,7 @@ function onDiscoverDevice(device){
 		deviceList.add(html);
         
 		//call of test() has been moved to after listItem has been added ????????
-		test();
+		test(deviceList);
 		}
         /*var xhttp;
         xhttp = new XMLHttpRequest();
@@ -120,7 +120,7 @@ function onError(reason)  {
 }
 
 
-function test(){
+function test(x){
 	str=selectgroup(['radiotv']); if (debug) { str=selectgroup(deviceList); alert("str of devicelist = "+str);}
 	var url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
 	if(debug) url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + str;
@@ -148,7 +148,7 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 		}
 	else 
 		str="";
-	//if (debug) alert(""+str);
+	if (debug) alert(""+str);
 	return str;
 }
 
