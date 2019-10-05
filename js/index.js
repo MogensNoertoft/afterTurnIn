@@ -74,6 +74,7 @@ function onDiscoverDevice(device){
 		listItem.innerHTML = html;
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
+		deviceList.push("frugtgront");
 		deviceList.push(html);
 		
         
