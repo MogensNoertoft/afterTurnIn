@@ -74,7 +74,7 @@ function onDiscoverDevice(device){
 		listItem.innerHTML = html;
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
-		deviceList.add(html);
+		//deviceList.add(html);
         
 		//call of test() has been moved to after listItem has been added ????????
 		test(deviceList);
