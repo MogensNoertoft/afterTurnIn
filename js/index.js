@@ -129,9 +129,9 @@ function test(){
 function openBrowser(url) {
    var target = '_blank';
    var options = "location=no"
+   if(debug) options = 'height=500 width=100'
    var ref = cordova.InAppBrowser.open(url, target, options);
-   ref.moveTo(500, 100);
-	ref.focus();
+
 }
 
 function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - denne funktion er til videre udvikling
