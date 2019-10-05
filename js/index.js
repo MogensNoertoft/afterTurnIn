@@ -27,7 +27,7 @@ var deviceList =[]; //this list will contain the current list of bluetooth devic
 var list = document.getElementById("bleDeviceList");
 var debug=true;
 
-setTimeout("window.location.reload();",5000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
+setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
  
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
@@ -75,6 +75,7 @@ function onDiscoverDevice(device){
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
 		deviceList.push(html);
+		
         
 		//call of test() has been moved to after listItem has been added ????????
 		test(deviceList);
@@ -120,10 +121,19 @@ function onError(reason)  {
 }
 
 
-function test(x){
-	str=selectgroup(['radiotv']); if (debug) { str=selectgroup(deviceList); alert("str of devicelist = "+str);}
-	var url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
-	if(debug) url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + str;
+function test(devList){
+	var url;
+	if (debug) 
+	{ 
+		str=selectgroup(devList); 
+		alert("str of devicelist = "+str);
+	}
+	else
+		str=selectgroup(['radiotv']); 
+	if(debug)
+		url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + str;
+	else
+		url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
 	openBrowser(url);
 }
 
