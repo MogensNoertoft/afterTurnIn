@@ -129,7 +129,7 @@ function test(){
 function openBrowser(url) {
    var target = '_blank';
    var options = "location=no"
-   if(debug) options = 'height=500 width=100'
+   if(debug) options = 'height=500, width=100'
    var ref = cordova.InAppBrowser.open(url, target, options);
 
 }
