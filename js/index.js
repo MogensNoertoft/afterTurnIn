@@ -145,6 +145,7 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 		}
 	else 
 		str="";
+	if (debug) alert(str);
 	return str;
 }
 
