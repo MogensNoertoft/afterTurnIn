@@ -23,8 +23,9 @@ var blue ={
 
 var ConnDeviceId;
 var bleDeviceName;
-var deviceList =[];
+var deviceList =[]; //this list will contain the current list of bluetooth devices we are connected to. Type: String[] devicelist
 var list = document.getElementById("bleDeviceList");
+var debug=true;
 
 setTimeout("window.location.reload();",5000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
  
@@ -56,6 +57,8 @@ function refreshDeviceList(){
 
 function onDiscoverDevice(device){
 	if(device.name == "radiotv" || device.name == "frugtgront"){
+		if(!debug)
+		{
 		test();
 		
 		var listItem = document.createElement('li');
@@ -63,7 +66,18 @@ function onDiscoverDevice(device){
 		listItem.innerHTML = html;
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
+        }
+		else
+		{
+		var listItem = document.createElement('li');
+        html = device.name;
+		listItem.innerHTML = html;
+        listItem.classList.add('active');
+		document.getElementById("bleDeviceList").appendChild(listItem);
         
+		//call of test() has been moved to after listItem has been added ????????
+		test();
+		}
         /*var xhttp;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -88,7 +102,7 @@ function onDiscoverDevice(device){
 function conn(){
 	var  deviceTouch= event.srcElement.innerHTML;
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
-	var deviceTouchArr = deviceTouch.split(",");
+	var deviceTouchArr = deviceTouch.split(","); if(debug) deviceList=deviceTouchArr;
 	bleDeviceName = deviceTouchArr[0];
 	document.getElementById("debugDiv").innerHTML += "Du vil kun se: <br>"+deviceTouchArr[0]+" tilbud"; //for debug:
     if(event.srcElement.classList.contains('inactive')){
@@ -104,26 +118,11 @@ function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
 }
 
-/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-/* This code has been a navigation bar but hasn't been used yet */
-/*
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "242px";
-  document.getElementById("enhed").style.marginLeft = "242px";
-}
-*/
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-/*
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "-8px";
-  document.getElementById("enhed").style.marginLeft = "-8px";
-}
-*/
+
 function test(){
-	str=selectgroup(['radiotv']); 	;
+	str=selectgroup(['radiotv']); if (debug) str=selectgroup(deviceList);
 	var url='http://10.120.181.3/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
+	if(debug) url='http://10.120.181.3/DBDisplay.php?selectedgroup=' + str;
 	openBrowser(url);
 }
 
@@ -148,3 +147,25 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 		str="";
 	return str;
 }
+
+/* ----------------------------------------------------------------------------------------*/
+/* -------------------------- GARBAGE CODE ------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------*/
+
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+/* This code has been a navigation bar but hasn't been used yet */
+/*
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "242px";
+  document.getElementById("enhed").style.marginLeft = "242px";
+}
+*/
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+/*
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "-8px";
+  document.getElementById("enhed").style.marginLeft = "-8px";
+}
+*/
