@@ -79,8 +79,6 @@ function onDiscoverDevice(device){
 			listItem.innerHTML = html;
 			listItem.classList.add('active');
 			document.getElementById("bleDeviceList").appendChild(listItem);
-			//listItem.addEventListener('click', listItemClicked , false);
-			//deviceList.push("frugtgront");
 			deviceList.push(html);
 		}
         
@@ -109,15 +107,11 @@ function onDiscoverDevice(device){
 
 
 function conn(){
-	alert("conn");
 	var  deviceTouch= event.srcElement.innerHTML;
-	alert("Group selected" + deviceTouch);
-	
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
-var deviceTouchArr = deviceTouch.split(",");// if(debug) {deviceList=deviceTouchArr; alert("deviceTouchArr længde" + deviceTouchArr.length);}
+	var deviceTouchArr = deviceTouch.split(",");
 	bleDeviceName = deviceTouchArr[0];
 	makeNewDeviceList(bleDeviceName);
-	test(deviceList);
 	document.getElementById("debugDiv").innerHTML += "Du vil kun se: <br>"+deviceTouchArr[0]+" tilbud"; //for debug:
     if(event.srcElement.classList.contains('inactive')){
         event.srcElement.classList.remove('inactive');
@@ -126,6 +120,7 @@ var deviceTouchArr = deviceTouch.split(",");// if(debug) {deviceList=deviceTouch
         event.srcElement.classList.remove('active');
         event.srcElement.classList.add('inactive');
     }
+	test(deviceList);
  }
  
 function onError(reason)  {
@@ -170,17 +165,10 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 		}
 	else 
 		str="";
-	if (debug) alert(""+str);
 	return str;
 }
 
-function listItemClicked()
-{
-	//alert("listItemClicked - " + item);
-	var value = this.options[this.selectedIndex].value;
-    alert(value);
-}
-
+//bliver brugt når man vælger en gruppe selvom telefonen kan se flere varegrupper
 function makeNewDeviceList(onlyItem)
 {
 	while(deviceList.length>0)
