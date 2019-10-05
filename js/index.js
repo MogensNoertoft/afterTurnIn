@@ -74,7 +74,7 @@ function onDiscoverDevice(device){
 		listItem.innerHTML = html;
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
-		listItem.addEventListener('click', listItemClicked html, false);
+		listItem.addEventListener('click', listItemClicked , false);
 		//deviceList.push("frugtgront");
 		deviceList.push(html);
 		
@@ -165,9 +165,11 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 	return str;
 }
 
-function listItemClicked(item)
+function listItemClicked()
 {
-	alert("listItemClicked - " + item);
+	//alert("listItemClicked - " + item);
+	var value = this.options[this.selectedIndex].value;
+    alert(value);
 }
 
 /* ----------------------------------------------------------------------------------------*/
