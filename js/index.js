@@ -72,10 +72,10 @@ function onDiscoverDevice(device){
 		var listItem = document.createElement('li');
         html = device.name;
 		listItem.innerHTML = html;
-		listItem.addEventListener('onclick', listItemClicked(html));
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
-		deviceList.push("frugtgront");
+		listItem.addEventListener('click', listItemClicked html, false);
+		//deviceList.push("frugtgront");
 		deviceList.push(html);
 		
         
@@ -104,6 +104,7 @@ function onDiscoverDevice(device){
 
 
 function conn(){
+	alert("conn");
 	var  deviceTouch= event.srcElement.innerHTML;
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
 var deviceTouchArr = deviceTouch.split(","); if(debug) {deviceList=deviceTouchArr; alert("deviceTouchArr længde" + deviceTouchArr.length());}
