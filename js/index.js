@@ -116,7 +116,8 @@ function conn(){
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
 var deviceTouchArr = deviceTouch.split(",");// if(debug) {deviceList=deviceTouchArr; alert("deviceTouchArr længde" + deviceTouchArr.length);}
 	bleDeviceName = deviceTouchArr[0];
-	test(deviceTouchArr[0]);
+	makeNewDeviceList(bleDeviceName);
+	test(deviceList);
 	document.getElementById("debugDiv").innerHTML += "Du vil kun se: <br>"+deviceTouchArr[0]+" tilbud"; //for debug:
     if(event.srcElement.classList.contains('inactive')){
         event.srcElement.classList.remove('inactive');
@@ -178,6 +179,13 @@ function listItemClicked()
 	//alert("listItemClicked - " + item);
 	var value = this.options[this.selectedIndex].value;
     alert(value);
+}
+
+function makeNewDeviceList(onlyItem)
+{
+	while(deviceList.length>0)
+		deviceList.pop();
+	deviceList.push(onlyItem);
 }
 
 /* ----------------------------------------------------------------------------------------*/
