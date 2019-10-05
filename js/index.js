@@ -102,7 +102,7 @@ function onDiscoverDevice(device){
 function conn(){
 	var  deviceTouch= event.srcElement.innerHTML;
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
-	var deviceTouchArr = deviceTouch.split(","); if(debug) deviceList=deviceTouchArr;
+var deviceTouchArr = deviceTouch.split(","); if(debug) {deviceList=deviceTouchArr; alert("deviceTouchArr længde" + deviceTouchArr.length());}
 	bleDeviceName = deviceTouchArr[0];
 	document.getElementById("debugDiv").innerHTML += "Du vil kun se: <br>"+deviceTouchArr[0]+" tilbud"; //for debug:
     if(event.srcElement.classList.contains('inactive')){
@@ -120,7 +120,7 @@ function onError(reason)  {
 
 
 function test(){
-	str=selectgroup(['radiotv']); if (debug) str=selectgroup(deviceList);
+	str=selectgroup(['radiotv']); if (debug) { str=selectgroup(deviceList); alert("str of devicelist = "+str);}
 	var url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
 	if(debug) url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + str;
 	openBrowser(url);
@@ -145,7 +145,7 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 		}
 	else 
 		str="";
-	if (debug) alert(str);
+	//if (debug) alert(""+str);
 	return str;
 }
 
