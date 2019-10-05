@@ -1,0 +1,161 @@
+@font-face{
+    font-family: Segoe UI;
+    src: 
+} 
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #579ED1; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 26px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  font-family: 'Courgette';
+  font-weight: bold;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 35px;
+  cursor: pointer;
+  background-color: #38ACFF;
+  color: white;
+  border: none;
+  margin-left: auto;
+}
+
+.openbtn:hover {
+  color: black;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+  background-color: #38ACFF;
+  margin: -8px -8px -8px -8px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+} 
+
+#logo{
+    display:inline-block;
+    text-align: center;
+    width:86%;
+    margin: 0 auto;
+    font-family: 'Courgette';
+    color: white;
+    font-size:35px;
+    text-shadow: 2px 2px #606060;
+    white-space: nowrap;
+}
+
+body {
+    background-image: url(bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#enhed {
+    background-color: white;
+    text-align: center;
+    display:inline-block;
+    position:absolute;
+    width: 100%;
+    margin: 8px 0 0 -8px;
+    box-shadow: 0px 10px 10px 0px rgba(96,96,96,0.75);
+    transition: margin-left .5s; /* If you want a transition effect */
+}
+
+#enhed ul {
+    margin-top: 4px;
+    font-family:sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    list-style-type: none;
+}
+#enhed li {
+    display: inline;
+    text-align: center;
+    padding-right: 20px;
+}
+
+.tilbud {
+    display:inline-block;
+    position: absolute;
+    width: 100%;
+    margin-left: -8px;
+    margin-top: 64px;
+}
+
+.overskrift {
+    position: fixed;
+    width:100%;
+    text-align:center;
+    margin-top: 83px;
+    margin-left: -85px;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight:bold;
+    color: white;
+    
+    
+}
+
+.beskrivelse {
+    position: fixed;
+    width:100%;
+    text-align:center;
+    margin-top: 120px;
+    margin-left: -112px;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight:bold;
+    color: #606060;
+}
+
+.pris{}
+
+.billede{}
+
+.inactive{
+    color: lightgray;
+    
+}
+
+.active{
+    color: #606060;
+}

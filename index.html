@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css"> 
+		<link rel="shortcut icon" href="#">
+        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta charset="utf-8">     
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>	
+		<title>IoT projekt - Gruppe 4</title> 
+		<script type="text/javascript" src="cordova.js"></script> 
+        <script type="text/javascript" src="js/index.js"></script>
+        
+    </head>
+
+    
+    <body onload="onLoad()">
+			<!--<div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br>
+          <a href="#">Tilbud</a>
+          <a href="#">Find afdeling</a>
+          <a href="#">Om denne app</a>
+        </div> -->
+
+        <div id="main">
+          <!-- <button class="openbtn" onclick="openNav()">&#9776;</button> -->
+          <h1 id="logo">Din Tilbudsavis</h1>
+        </div>
+        
+        <div id="enhed">
+            <ul id="bleDeviceList" onclick="changeColor()"> </ul>
+			<div id="debugDiv">
+			</div>
+        </div>
+    
+		<div id="tilbud">
+			 <!-- <iframe id="frame" src="http://10.120.181.3/DBdisplay.php"> </iframe>  -->
+			 <!-- iframe doesn't work because of CORS and CORB -->
+		</div>
+    </body>
+</html> 
