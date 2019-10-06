@@ -29,7 +29,7 @@ var debug=true;
 var timeOutActiveValue = undefined;
 var ref //pointer til browser vindue
 
-alert("timer kører2");
+//alert("timer kører2");
 timerStartStop("start");
 
  
@@ -139,7 +139,7 @@ function test(devList){
 	if (debug) 
 	{ 
 		str=selectgroup(devList); 
-		alert("str of devicelist = "+str);
+		//alert("str of devicelist = "+str);
 	}
 	else
 		str=selectgroup(['radiotv']); 
@@ -188,21 +188,21 @@ function timerStartStop(value)
 	if(value == "start" && timeOutActiveValue == undefined)
 	{
 		timeOutActiveValue = setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste	
-		alert("timer kører");
+		//alert("timer kører");
 	}
 	if(value == "stop")
 	{
 		clearTimeout(timeOutActiveValue);
 		timeOutActiveValue = undefined;
-		alert("Timer Stoped");
+		//alert("Timer Stoped");
 	}	
 }
 
 function winClose()
 {
-	alert("closeing browser window");
+	//alert("closeing browser window");
 	ref.close();
-	alert ("Timer kører1");
+	//alert ("Timer kører1");
 	timerStartStop("start"); //genstart timer
 	document.getElementById("debugDiv").innerHTML ="";
 }
