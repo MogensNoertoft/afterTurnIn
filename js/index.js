@@ -29,6 +29,7 @@ var debug=true;
 var timeOutActiveValue = undefined;
 var ref //pointer til browser vindue
 
+alert("timer kører2");
 timerStartStop("start");
 
  
@@ -185,7 +186,7 @@ function timerStartStop(value)
 	if(value == "start")
 	{
 		timeOutActiveValue = setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
-		alert ("Timer kører");
+		
 	}
 	else
 	{
@@ -199,6 +200,7 @@ function winClose()
 {
 	alert("closeing browser window");
 	ref.close();
+	alert ("Timer kører1");
 	timerStartStop("start"); //genstart timer
 }
 /* ----------------------------------------------------------------------------------------*/
