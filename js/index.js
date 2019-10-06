@@ -185,7 +185,7 @@ function timerStartStop(value)
 {
 	if(value == "start")
 	{
-		timeOutActiveValue = setTimeout("window.location.reload();",5000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste	
+		timeOutActiveValue = setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste	
 		alert("timer kører");
 	}
 	else
