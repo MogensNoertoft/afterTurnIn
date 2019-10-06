@@ -37,7 +37,6 @@ function onLoad(){
     bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
 	
 	window.open = codova.InAppBrowser.open;
-	window.addEventListener('ondblclick', winClose, false);
 	//document.addEventListener("deviceready", onDeviceReady, false);
 	
 
@@ -152,6 +151,7 @@ function openBrowser(url) {
    var options = "location=no"
    if(debug) options = "height=50, width=10"
 	ref = cordova.InAppBrowser.open(url, target, options);
+	ref.addEventListener('dblclick', winClose, false);
 }
 
 function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - denne funktion er til videre udvikling
@@ -191,7 +191,8 @@ function timerStartStop()
 
 function winClose()
 {
-		ref.close();
+	alert("closeing browser window");
+	ref.close();
 }
 /* ----------------------------------------------------------------------------------------*/
 /* -------------------------- GARBAGE CODE ------------------------------------------------*/
