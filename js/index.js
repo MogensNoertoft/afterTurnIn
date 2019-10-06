@@ -29,7 +29,7 @@ var debug=true;
 var timeOutActiveValue = undefined;
 var ref //pointer til browser vindue
 
-timerStartStop();
+timerStartStop("start");
 
  
 function onLoad(){
@@ -122,6 +122,7 @@ function conn(){
         event.srcElement.classList.remove('active');
         event.srcElement.classList.add('inactive');
     }
+	timerStartStop("stop");
 	test(deviceList);
  }
  
@@ -148,11 +149,11 @@ function test(devList){
 
 function openBrowser(url) {
    var target = '_blank';
-   var options = "location=no"
-   if(debug) options = "height=50, width=10"
+   var options = "location=no";
+   if(debug) options = "height=50, width=10";
 	ref = cordova.InAppBrowser.open(url, target, options);
 	ref.addEventListener('exit', winClose, false);
-	timerStartStop(); //Stop timer indtil browser bliver lukket.
+	//timerStartStop("stop"); //Stop timer indtil browser bliver lukket.
 }
 
 function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - denne funktion er til videre udvikling
@@ -179,9 +180,9 @@ function makeSelectedDeviceList(onlyItem)
 	deviceList.push(onlyItem);
 }
 
-function timerStartStop()
+function timerStartStop(value)
 {
-	if(timeOutActiveValue == undefined)
+	if(value == "start")
 	{
 		timeOutActiveValue = setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
 		alert ("Timer kører");
@@ -198,7 +199,7 @@ function winClose()
 {
 	alert("closeing browser window");
 	ref.close();
-	timerStartStop(); //genstart timer
+	timerStartStop("start"); //genstart timer
 }
 /* ----------------------------------------------------------------------------------------*/
 /* -------------------------- GARBAGE CODE ------------------------------------------------*/
