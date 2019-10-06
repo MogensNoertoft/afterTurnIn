@@ -116,13 +116,15 @@ function conn(){
 	bleDeviceName = deviceTouchArr[0];
 	makeSelectedDeviceList(bleDeviceName);
 	document.getElementById("debugDiv").innerHTML += "Du vil kun se: <br>"+deviceTouchArr[0]+" tilbud"; //for debug:
-    if(event.srcElement.classList.contains('inactive')){
+    /*
+	if(event.srcElement.classList.contains('inactive')){
         event.srcElement.classList.remove('inactive');
         event.srcElement.classList.add('active');
     } else {
         event.srcElement.classList.remove('active');
         event.srcElement.classList.add('inactive');
     }
+	*/
 	timerStartStop("stop");
 	test(deviceList);
  }
@@ -202,6 +204,7 @@ function winClose()
 	ref.close();
 	alert ("Timer kører1");
 	timerStartStop("start"); //genstart timer
+	document.getElementById("debugDiv").innerHTML ="";
 }
 /* ----------------------------------------------------------------------------------------*/
 /* -------------------------- GARBAGE CODE ------------------------------------------------*/
