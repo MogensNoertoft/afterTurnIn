@@ -151,7 +151,8 @@ function openBrowser(url) {
    var options = "location=no"
    if(debug) options = "height=50, width=10"
 	ref = cordova.InAppBrowser.open(url, target, options);
-	ref.addEventListener('dblclick', winClose, false);
+	ref.addEventListener('exit', winClose, false);
+	timerStartStop(); //Stop timer indtil browser bliver lukket.
 }
 
 function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - denne funktion er til videre udvikling
@@ -193,6 +194,7 @@ function winClose()
 {
 	alert("closeing browser window");
 	ref.close();
+	timerStartStop(); //genstart timer
 }
 /* ----------------------------------------------------------------------------------------*/
 /* -------------------------- GARBAGE CODE ------------------------------------------------*/
