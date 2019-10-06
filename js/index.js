@@ -182,11 +182,15 @@ function makeSelectedDeviceList(onlyItem)
 function timerStartStop()
 {
 	if(timeOutActiveValue == undefined)
+	{
 		timeOutActiveValue = setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
+		alert (Timer kører");
+	}
 	else
 	{
 		clearTimeout(timeOutActiveValue);
 		timeOutActiveValue = undefined;
+		alert("Timer Stoped");
 	}	
 }
 
