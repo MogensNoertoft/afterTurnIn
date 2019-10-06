@@ -26,21 +26,24 @@ var bleDeviceName;
 var deviceList =[]; //this list will contain the current list of bluetooth devices we are connected to. Type: String[] devicelist
 var list = document.getElementById("bleDeviceList");
 var debug=true;
+var timeOutActiveValue = undefined;
+var ref //pointer til browser vindue
 
-setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
+timerStartStop();
+
  
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
     bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
 	
 	window.open = codova.InAppBrowser.open;
-	
+	window.addEventListener('ondblclick', winClose, false);
 	//document.addEventListener("deviceready", onDeviceReady, false);
 	
 
 }
 
-function onDeviceReady(){
+function onDeviceReady(){ 
 	refreshDeviceList();
 }
 
@@ -111,7 +114,7 @@ function conn(){
 	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
 	var deviceTouchArr = deviceTouch.split(",");
 	bleDeviceName = deviceTouchArr[0];
-	makeNewDeviceList(bleDeviceName);
+	makeSelectedDeviceList(bleDeviceName);
 	document.getElementById("debugDiv").innerHTML += "Du vil kun se: <br>"+deviceTouchArr[0]+" tilbud"; //for debug:
     if(event.srcElement.classList.contains('inactive')){
         event.srcElement.classList.remove('inactive');
@@ -148,7 +151,7 @@ function openBrowser(url) {
    var target = '_blank';
    var options = "location=no"
    if(debug) options = "height=50, width=10"
-   var ref = cordova.InAppBrowser.open(url, target, options);
+	ref = cordova.InAppBrowser.open(url, target, options);
 
 }
 
@@ -168,14 +171,29 @@ function selectgroup(grupper) //grupper i DB hedder PT frugtgrønt og radiotv - 
 	return str;
 }
 
-//bliver brugt når man vælger en gruppe selvom telefonen kan se flere varegrupper
-function makeNewDeviceList(onlyItem)
+//bliver brugt når man vælger en gruppe at vise, selvom telefonen kan se flere varegrupper vises kun den valgte.
+function makeSelectedDeviceList(onlyItem)
 {
 	while(deviceList.length>0)
 		deviceList.pop();
 	deviceList.push(onlyItem);
 }
 
+function timerStartStop()
+{
+	if(timeOutActiveValue == undefined)
+		timeOutActiveValue = setTimeout("window.location.reload();",20000); //reload siden hvert 20. sekund. Dermed genindlæses Bluetooth-liste
+	else
+	{
+		clearTimeout(timeOutActiveValue);
+		timeOutActiveValue = undefined;
+	}	
+}
+
+function 
+{
+		ref.close();
+}
 /* ----------------------------------------------------------------------------------------*/
 /* -------------------------- GARBAGE CODE ------------------------------------------------*/
 /* ----------------------------------------------------------------------------------------*/
