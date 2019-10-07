@@ -232,7 +232,8 @@ mutations.forEach(function(mutation) {
 var target = document.querySelector('bleDeviceList');
 
 var observer = new MutationObserver(function(mutations) {
-		alert("UL list mutation");
+		mutations.forEach(function(mutation) {
+		alert("UL list mutation");})
 	});
 	
 var config = {attributes: true, childList: true, characterData: true}
