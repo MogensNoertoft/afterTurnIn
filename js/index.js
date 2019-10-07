@@ -158,7 +158,7 @@ function test(devList){
 
 function openBrowser(url) {
    var target = '_blank';
-   var options = "location=no";
+   var options = "location=yes, hidenavigationbuttons=yes hideurlbar=yes";
    //if(debug) options = "height=50, width=10";
 	ref = cordova.InAppBrowser.open(url, target, options);
 	ref.addEventListener('exit', winClose, false);
