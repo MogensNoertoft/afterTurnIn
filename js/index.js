@@ -62,7 +62,7 @@ function onDiscoverDevice(device){
 	if(device.name == "radiotv" || device.name == "frugtgront"){
 		if(!debug)
 		{
-		test();
+		//test();
 		
 		var listItem = document.createElement('li');
         html = device.name;
@@ -70,6 +70,8 @@ function onDiscoverDevice(device){
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
 		deviceList.push(html);
+		
+		test(deviceList);
         }
 		else
 		{
