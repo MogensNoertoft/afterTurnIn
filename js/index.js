@@ -144,7 +144,7 @@ function test(devList){
 	else
 		str=selectgroup(['radiotv']); 
 	if(debug)
-		url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + str;
+		url='http://172.20.10.4/DBDisplay.php?selectedgroup=' + str;
 	else
 		url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
 	openBrowser(url);
