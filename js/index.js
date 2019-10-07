@@ -25,11 +25,11 @@ var ConnDeviceId;
 var bleDeviceName;
 var deviceList =[]; //this list will contain the current list of bluetooth devices we are connected to. Type: String[] devicelist
 var list = document.getElementById("bleDeviceList");
-var debug=true;
+var debug=false;
 var timeOutActiveValue = undefined;
 var ref //pointer til browser vindue
 
-alert("timer kører2");
+//alert("timer kører2");
 timerStartStop("start");
 
  
@@ -39,7 +39,7 @@ function onLoad(){
 	
 	window.open = codova.InAppBrowser.open;
 	//document.addEventListener("deviceready", onDeviceReady, false);
-	observer.observe(target, config);
+	
 
 }
 
@@ -69,21 +69,22 @@ function onDiscoverDevice(device){
 		listItem.innerHTML = html;
         listItem.classList.add('active');
 		document.getElementById("bleDeviceList").appendChild(listItem);
+		deviceList.push(html);
         }
 		else
 		{
-		var testgroups = ['brevpapir','radiotv','frugtgront', 'shampoo'];
+		//var testgroups = ['brevpapir','radiotv','frugtgront', 'shampoo'];
 		
-		for(var i=0;i<testgroups.length;i++)
-		{
+		//for(var i=0;i<testgroups.length;i++)
+		//{
 			var listItem = document.createElement('li');
-			//html = device.name; 
-			html = testgroups[i];
+			html = device.name; 
+			//html = testgroups[i];
 			listItem.innerHTML = html;
 			listItem.classList.add('active');
 			document.getElementById("bleDeviceList").appendChild(listItem);
 			deviceList.push(html);
-		}
+		//}
         
 		//call of test() has been moved to after listItem has been added ????????
 		test(deviceList);
@@ -136,7 +137,10 @@ function onError(reason)  {
 
 function test(devList){
 	var url;
-	if (debug) 
+	var str=selectgroup(devList);
+	url='http://172.20.10.4/DBDisplay.php?selectedgroup=' + str;
+	openBrowser(url);
+	/*if (debug) 
 	{ 
 		str=selectgroup(devList); 
 		//alert("str of devicelist = "+str);
@@ -146,14 +150,14 @@ function test(devList){
 	if(debug)
 		url='http://172.20.10.4/DBDisplay.php?selectedgroup=' + str;
 	else
-		url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);
-	openBrowser(url);
+		url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);*/
+	
 }
 
 function openBrowser(url) {
    var target = '_blank';
    var options = "location=no";
-   if(debug) options = "height=50, width=10";
+   //if(debug) options = "height=50, width=10";
 	ref = cordova.InAppBrowser.open(url, target, options);
 	ref.addEventListener('exit', winClose, false);
 	//timerStartStop("stop"); //Stop timer indtil browser bliver lukket.
@@ -229,14 +233,7 @@ function closeNav() {
 mutations.forEach(function(mutation) {
 */
 
-var target = document.querySelector('bleDeviceList');
 
-var observer = new MutationObserver(function(mutations) {
-		mutations.forEach(function(mutation) {
-		alert("UL list mutation");})
-	});
-	
-var config = {attributes: true, childList: true, characterData: true}
 	
 
 	
