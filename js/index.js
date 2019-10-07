@@ -39,7 +39,7 @@ function onLoad(){
 	
 	window.open = codova.InAppBrowser.open;
 	//document.addEventListener("deviceready", onDeviceReady, false);
-	
+	observer.observe(target, config);
 
 }
 
@@ -226,4 +226,17 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "-8px";
   document.getElementById("enhed").style.marginLeft = "-8px";
 }
+mutations.forEach(function(mutation) {
 */
+
+var target = document.querySelector('bleDeviceList');
+
+var observer = new MutationObserver(function(mutations) {
+		alert("UL list mutation");
+	});
+	
+var config = {attributes: true, childList: true, characterData: true}
+	
+
+	
+	
