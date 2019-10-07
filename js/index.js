@@ -29,7 +29,7 @@ var debug=true;
 var timeOutActiveValue = undefined;
 var ref //pointer til browser vindue
 
-//alert("timer kører2");
+alert("timer kører2");
 timerStartStop("start");
 
  
