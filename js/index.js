@@ -60,9 +60,9 @@ function refreshDeviceList(){
 
 function onDiscoverDevice(device){
 	if(device.name == "radiotv" || device.name == "frugtgront"){
-		if(!debug)
+		/*if(!debug)
 		{
-		//test();
+		//test();*/
 		
 		var listItem = document.createElement('li');
         html = device.name;
@@ -72,7 +72,7 @@ function onDiscoverDevice(device){
 		deviceList.push(html);
 		
 		test(deviceList);
-        }
+        /*}
 		else
 		{
 		//var testgroups = ['brevpapir','radiotv','frugtgront', 'shampoo'];
@@ -90,7 +90,7 @@ function onDiscoverDevice(device){
         
 		//call of test() has been moved to after listItem has been added ????????
 		test(deviceList);
-		}
+		}*/
         /*var xhttp;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -146,7 +146,7 @@ function test(devList){
 
 function openBrowser(url) {
    var target = '_blank';
-   var options = "location=yes, hidenavigationbuttons=yes hideurlbar=yes";
+   var options = "location=yes, hidenavigationbuttons=yes, hideurlbar=yes";
    //if(debug) options = "height=50, width=10";
 	ref = cordova.InAppBrowser.open(url, target, options);
 	ref.addEventListener('exit', winClose, false);
