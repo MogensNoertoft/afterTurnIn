@@ -140,20 +140,8 @@ function onError(reason)  {
 function test(devList){
 	var url;
 	var str=selectgroup(devList);
-	url='http://172.20.10.4/DBDisplay.php?selectedgroup=' + str;
+	url='http://10.120.180.250/DBDisplay.php?selectedgroup=' + str;
 	openBrowser(url);
-	/*if (debug) 
-	{ 
-		str=selectgroup(devList); 
-		//alert("str of devicelist = "+str);
-	}
-	else
-		str=selectgroup(['radiotv']); 
-	if(debug)
-		url='http://172.20.10.4/DBDisplay.php?selectedgroup=' + str;
-	else
-		url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + selectgroup(['radiotv']);*/
-	
 }
 
 function openBrowser(url) {
