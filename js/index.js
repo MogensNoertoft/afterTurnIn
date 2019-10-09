@@ -140,7 +140,7 @@ function onError(reason)  {
 function test(devList){
 	var url;
 	var str=selectgroup(devList);
-	url='http://192.168.0.29/DBDisplay.php?selectedgroup=' + str;
+	url='http://10.120.180.25/DBDisplay.php?selectedgroup=' + str;
 	openBrowser(url);
 }
 
